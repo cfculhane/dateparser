@@ -497,6 +497,16 @@ class _parser:
             dateobj, self.settings, current_day=self.now.day
         )
 
+        return dateobj
+
+    def _correct_for_month(self, dateobj):
+        if (
+            getattr(self, '_token_month', None)
+            # or getattr(self, '_token_weekday', None)
+            # or getattr(self, '_token_time', None)
+        ):
+            return dateobj
+
         dateobj = set_correct_month_from_settings(
             dateobj, self.settings, current_month=self.now.month
         )
@@ -514,6 +524,10 @@ class _parser:
 
         # correction for preference of day: beginning, current, end
         dateobj = po._correct_for_day(dateobj)
+
+        # correction for preference of month: first, current, last
+        dateobj = po._correct_for_month(dateobj)
+
         period = po._get_period()
 
         return dateobj, period
