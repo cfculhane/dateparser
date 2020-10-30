@@ -156,6 +156,10 @@ def check_settings(settings):
             'values': ('current', 'first', 'last'),
             'type': str
         },
+        'PREFER_MONTH': {
+            'values': ('current', 'first', 'last'),
+            'type': str
+        },
         'PREFER_DATES_FROM': {
             'values': ('current_period', 'past', 'future'),
             'type': str,
