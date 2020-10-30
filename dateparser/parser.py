@@ -8,7 +8,8 @@ from datetime import timedelta
 
 from dateparser.utils import set_correct_day_from_settings, \
     get_last_day_of_month, get_previous_leap_year, get_next_leap_year, \
-    _get_missing_parts
+    _get_missing_parts, set_correct_month_from_settings
+
 from dateparser.utils.strptime import strptime
 
 
@@ -495,6 +496,11 @@ class _parser:
         dateobj = set_correct_day_from_settings(
             dateobj, self.settings, current_day=self.now.day
         )
+
+        dateobj = set_correct_month_from_settings(
+            dateobj, self.settings, current_month=self.now.month
+        )
+
         return dateobj
 
     @classmethod

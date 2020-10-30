@@ -18,6 +18,7 @@ settings = {
     # Incomplete dates
     'PREFER_DAY_OF_MONTH': 'current',
     'PREFER_DATES_FROM': 'current_period',
+    'PREFER_MONTH': 'current',
     'RELATIVE_BASE': False,
     'STRICT_PARSING': False,
     'REQUIRE_PARTS': [],
